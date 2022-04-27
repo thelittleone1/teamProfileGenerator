@@ -1,3 +1,7 @@
+// Required Files and constants
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 const inquirer = require("inquirer");
 const fs = require("fs");
 
@@ -19,7 +23,7 @@ function buildATeam() {
             type: "list",
             message: "What is their role?",
             name: "employeeRole",
-            choices: ["Manager", "Engineer", "Intern" ],
+            choices: ["Manager", "Engineer", "Intern" ], // I don't want more team members 
         },
         {
             type: "input",
@@ -46,3 +50,4 @@ function buildATeam() {
     }
 } 
 buildATeam();
+
