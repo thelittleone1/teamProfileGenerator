@@ -57,9 +57,12 @@ function buildATeam() {
     .then(function(answers) {
         const manager = new Manager(answers.nameOfManager, answers.employeeID, answers.employeeEmail, answers.employeeData);
         team.push(manager);
-        if (answers.keepBuildingTeam = "Add Engineer") {
+        
+        if (answers.keepBuildingTeam == "Add Engineer") {
             buildAEngineer();
-        } else if (answers.keepBuildingTeam = "Add Inters") {
+        } 
+        
+        if (answers.keepBuildingTeam == "Add Intern") {
             buildAIntern();
         } // Else for team complete end program 
     })
@@ -98,6 +101,14 @@ function buildAEngineer() {
     .then(function(answers) {
         const engineer = new Engineer(answers.nameOfEngineer, answers.employeeID, answers.employeeEmail, answers.employeeData);
         team.push(engineer);
+
+        if (answers.keepBuildingTeam == "Add Engineer") {
+            buildAEngineer();
+        } 
+        
+        if (answers.keepBuildingTeam == "Add Intern") {
+            buildAIntern();
+        } // Else for team complete end program 
     })
     }
 
@@ -132,11 +143,25 @@ function buildAEngineer() {
             },
         ])
         .then(function(answers) {
-            const intern = new Intern(answers.nameOfInter, answers.employeeID, answers.employeeEmail, answers.employeeData);
+            const intern = new Intern(answers.nameOfIntern, answers.employeeID, answers.employeeEmail, answers.employeeData);
             team.push(intern);
+
+            if (answers.keepBuildingTeam == "Add Engineer") {
+                buildAEngineer();
+            } 
+            
+            if (answers.keepBuildingTeam == "Add Intern") {
+                buildAIntern();
+            } // Else for team complete end program 
         })
         }
 
         function buildYourTeam() {
 
         }
+
+        function renderHTML() {
+            fs.writeFile("./dist/newHTML", finalHTML)
+        }
+
+        buildATeam();
