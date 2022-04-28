@@ -19,6 +19,12 @@ const fs = require("fs");
 // Empty Array to hold team
 const team = [];
 
+// Empy Individual Arrays 
+const managerArray = [];
+const engineerArray = [];
+const interArray = [];
+
+// Function that launches the program, and promts you to add a manager
 function buildATeam() {
     inquirer.prompt([
         {
@@ -48,8 +54,18 @@ function buildATeam() {
             choices: ["Add Engineer", "Add Intern", "Team Complete"],
         },
     ])
+    .then(function(answers) {
+        const manager = new Manager(answers.nameOfManager, answers.employeeID, answers.employeeEmail, answers.employeeData);
+        team.push(manager);
+        if (answers.keepBuildingTeam = "Add Engineer") {
+            buildAEngineer();
+        } else if (answers.keepBuildingTeam = "Add Inters") {
+            buildAIntern();
+        } // Else for team complete end program 
+    })
     }
 
+// Function to add an engineer
 function buildAEngineer() {
     inquirer.prompt([
         {
@@ -79,8 +95,13 @@ function buildAEngineer() {
             choices: ["Add Engineer", "Add Intern", "Team Complete"],
         },
     ])
+    .then(function(answers) {
+        const engineer = new Engineer(answers.nameOfEngineer, answers.employeeID, answers.employeeEmail, answers.employeeData);
+        team.push(engineer);
+    })
     }
 
+    // Function to add an intern 
     function buildAIntern() {
         inquirer.prompt([
             {
@@ -110,6 +131,10 @@ function buildAEngineer() {
                 choices: ["Add Engineer", "Add Intern", "Team Complete"],
             },
         ])
+        .then(function(answers) {
+            const intern = new Intern(answers.nameOfInter, answers.employeeID, answers.employeeEmail, answers.employeeData);
+            team.push(intern);
+        })
         }
 
         function buildYourTeam() {
