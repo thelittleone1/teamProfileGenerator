@@ -14,14 +14,14 @@ const internProfile = function(cardI) { return `
             <ul class="list-group">
                 <li class="list-group-item">
                     <span>ID: </span>
-                    ${cardI.employeeID}
+                    ${cardI.idNumber}
                 </li>
                 <li class="list-group-item">
-                    <span>Email: <a>${cardI.employeeEmail}</a> </span>
+                    <span>Email: <a>${cardI.email}</a> </span>
                 </li>
                 <li class="list-group-item">
-                    <span>Office: </span>
-                    ${cardI.employeeData}
+                    <span>School Name: </span>
+                    ${cardI.schoolName}
                     </li>
             </ul>
         </div>

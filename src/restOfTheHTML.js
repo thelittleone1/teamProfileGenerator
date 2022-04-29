@@ -1,5 +1,5 @@
 // Template Literal for Intern
-const htmlFormat = function(teamProfiles) { return `
+const htmlFormat = function(teamManager, teamEngineer, teamIntern) { return `
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,7 +29,9 @@ const htmlFormat = function(teamProfiles) { return `
             <div class="container">
                 <!-- Profile classes -->
                 <div class="d-flex row align-items-center justify-content-center">
-                    ${teamProfiles}
+                    ${teamManager} 
+                    ${teamEngineer} 
+                    ${teamIntern}
                 </div>
             </div>
         </main>

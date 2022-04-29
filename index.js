@@ -7,7 +7,7 @@ const Intern = require("./lib/intern");
 const Employee = require("./lib/employee");
 
 // Cost for Temperate Literals of classes
-const boilderPlateTemplate = require("./src/restOfTheHTML");
+const boilerPlateTemplate = require("./src/restOfTheHTML");
 const engineerTemplate = require("./src/engineer-template");
 const internTemplate = require("./src/intern-template");
 const managerTemplate = require("./src/manager-template");
@@ -165,30 +165,26 @@ function buildAEngineer() {
         }
 
         function buildYourTeam() {
-            // const mapTeam = team.map(function(element) {
-            //     return element;
-            // });
-            // console.log(mapTeam);
-            //console.log(managerArray);
-            //console.log(managerTemplate(managerArray[0]));
-            const renderedManagerTemplate = managerTemplate(managerArray[0]);
-            const renderedEngineerTemplate = engineerTemplate(engineerArray[0]);
-            const renderedInternTemplate = internTemplate(internArray[0]);
-            const finalForm = boilderPlateTemplate(renderedManagerTemplate + renderedEngineerTemplate + renderedInternTemplate);
-            // engineerTemplate(team.Engineer);
-            // internTemplate(team.Intern);
-            //fs.writeFile("./dist/newHTML", renderedManagerTemplate);
-            fs.writeFile("fileName", finalForm, (err) => {
+            console.log(managerArray);
+            console.log(engineerArray);
+            console.log(internArray);
+
+            const mapManager = managerArray.map(item => managerTemplate(item));
+            console.log(mapManager);
+            const mapEngineers = engineerArray.map(item => engineerTemplate(item)); 
+            console.log(mapEngineers);
+            const mapInterns = internArray.map(item => internTemplate(item)); 
+            console.log(mapInterns);
+            const finalForm = boilerPlateTemplate(mapManager, mapEngineers, mapInterns);
+            
+            fs.writeFile("fileName.html", finalForm, (err) => {
                 if (err) {
                     console.log("Error: File Not Created");
                 } else {
                     console.log("File created!");
                 }
             });
-        }
-
-        function renderHTML() {
-            
-        }
+        };
 
         buildATeam();
+        //buildYourTeam();

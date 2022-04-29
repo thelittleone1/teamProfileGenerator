@@ -14,14 +14,14 @@ const engineerProfile = function(cardE) { return `
             <ul class="list-group">
                 <li class="list-group-item">
                     <span>ID: </span>
-                    ${cardE.employeeID}
+                    ${cardE.idNumber}
                 </li>
                 <li class="list-group-item">
-                    <span>Email: <a>${cardE.employeeEmail}</a> </span>
+                    <span>Email: <a>${cardE.email}</a> </span>
                 </li>
                 <li class="list-group-item">
-                    <span>Office: </span>
-                    ${cardE.employeeData}
+                    <span>Github: </span>
+                    ${cardE.gitHubUserName}
                     </li>
             </ul>
         </div>
