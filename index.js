@@ -165,19 +165,23 @@ function buildAEngineer() {
         }
 
         function buildYourTeam() {
-            console.log(managerArray);
-            console.log(engineerArray);
-            console.log(internArray);
+            // console.log(managerArray);
+            // console.log(engineerArray);
+            // console.log(internArray);
 
+            // Mapping through arrays to return they via the template
             const mapManager = managerArray.map(item => managerTemplate(item));
-            console.log(mapManager);
+            //console.log(mapManager);
             const mapEngineers = engineerArray.map(item => engineerTemplate(item)); 
-            console.log(mapEngineers);
+            //console.log(mapEngineers);
             const mapInterns = internArray.map(item => internTemplate(item)); 
-            console.log(mapInterns);
+            //console.log(mapInterns);
+            
+            // Inserting all data into Final HTML Template
             const finalForm = boilerPlateTemplate(mapManager, mapEngineers, mapInterns);
             
-            fs.writeFile("fileName.html", finalForm, (err) => {
+            // Writing File 
+            fs.writeFile("./dist/fileName.html", finalForm, (err) => {
                 if (err) {
                     console.log("Error: File Not Created");
                 } else {
@@ -187,4 +191,4 @@ function buildAEngineer() {
         };
 
         buildATeam();
-        //buildYourTeam();
+    
