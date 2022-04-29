@@ -1,11 +1,11 @@
 // Template Literal for Manager
-const managerProfile = function(cardM) { `
+const managerProfile = function(cardM) { return `
 <div class="card m-5 shadow" style="width: 300px">
     <div class="card-header text-white bg-primary">
-        <h3>${cardM.askName}</h3>
+        <h3>${cardM.name}</h3>
             <p class="h4">
             <img src="/images/mug_icon.png">
-                ${cardM.askManagerRole}
+                Manager
             </p>
     </div>
 
@@ -14,15 +14,14 @@ const managerProfile = function(cardM) { `
             <ul class="list-group">
                 <li class="list-group-item">
                     <span>ID: </span>
-                    ${cardM.askIdNumber}
+                    ${cardM.idNumber}
                 </li>
                 <li class="list-group-item">
-                    <span>Email: <a>${cardM.askEmail}</a> </span>
-                    // <a>janedoe@aol.com</a>
+                    <span>Email: <a>${cardM.email}</a> </span>
                 </li>
                 <li class="list-group-item">
                     <span>Office: </span>
-                    ${cardM.askOfficeNumber}
+                    ${cardM.officeNumber}
                     </li>
             </ul>
         </div>

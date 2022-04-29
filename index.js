@@ -22,7 +22,7 @@ const team = [];
 // Empy Individual Arrays 
 const managerArray = [];
 const engineerArray = [];
-const interArray = [];
+const internArray = [];
 
 // Function that launches the program, and promts you to add a manager
 function buildATeam() {
@@ -56,7 +56,7 @@ function buildATeam() {
     ])
     .then(function(answers) {
         const manager = new Manager(answers.nameOfManager, answers.employeeID, answers.employeeEmail, answers.employeeData);
-        team.push(manager);
+        managerArray.push(manager);
         
         if (answers.keepBuildingTeam == "Add Engineer") {
             buildAEngineer();
@@ -100,7 +100,7 @@ function buildAEngineer() {
     ])
     .then(function(answers) {
         const engineer = new Engineer(answers.nameOfEngineer, answers.employeeID, answers.employeeEmail, answers.employeeData);
-        team.push(engineer);
+        engineerArray.push(engineer);
 
         if (answers.keepBuildingTeam == "Add Engineer") {
             buildAEngineer();
@@ -109,6 +109,10 @@ function buildAEngineer() {
         if (answers.keepBuildingTeam == "Add Intern") {
             buildAIntern();
         } // Else for team complete end program 
+
+        if (answers.keepBuildingTeam == "Team Complete") {
+            buildYourTeam();
+        }
     })
     }
 
@@ -144,7 +148,7 @@ function buildAEngineer() {
         ])
         .then(function(answers) {
             const intern = new Intern(answers.nameOfIntern, answers.employeeID, answers.employeeEmail, answers.employeeData);
-            team.push(intern);
+            internArray.push(intern);
 
             if (answers.keepBuildingTeam == "Add Engineer") {
                 buildAEngineer();
@@ -153,15 +157,38 @@ function buildAEngineer() {
             if (answers.keepBuildingTeam == "Add Intern") {
                 buildAIntern();
             } // Else for team complete end program 
+
+            if (answers.keepBuildingTeam == "Team Complete") {
+                buildYourTeam();
+            }
         })
         }
 
         function buildYourTeam() {
-
+            // const mapTeam = team.map(function(element) {
+            //     return element;
+            // });
+            // console.log(mapTeam);
+            //console.log(managerArray);
+            //console.log(managerTemplate(managerArray[0]));
+            const renderedManagerTemplate = managerTemplate(managerArray[0]);
+            const renderedEngineerTemplate = engineerTemplate(engineerArray[0]);
+            const renderedInternTemplate = internTemplate(internArray[0]);
+            const finalForm = boilderPlateTemplate(renderedManagerTemplate + renderedEngineerTemplate + renderedInternTemplate);
+            // engineerTemplate(team.Engineer);
+            // internTemplate(team.Intern);
+            //fs.writeFile("./dist/newHTML", renderedManagerTemplate);
+            fs.writeFile("fileName", finalForm, (err) => {
+                if (err) {
+                    console.log("Error: File Not Created");
+                } else {
+                    console.log("File created!");
+                }
+            });
         }
 
         function renderHTML() {
-            fs.writeFile("./dist/newHTML", finalHTML)
+            
         }
 
         buildATeam();

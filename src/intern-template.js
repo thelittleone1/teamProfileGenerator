@@ -1,28 +1,27 @@
 // Template Literal for Intern
-const internProfile = function(cardI) { `
+const internProfile = function(cardI) { return `
 <div class="card m-5 shadow" style="width: 300px">
     <div class="card-header text-white bg-primary">
-        <h3>${cardI.askName}</h3>
+        <h3>${cardI.name}</h3>
             <p class="h4">
             <img src="/images/mug_icon.png">
-                ${cardI.askInternRole}
+                Intern
             </p>
     </div>
 
-    <!-- Manager Bottom Card -->
+    <!-- Intern Bottom Card -->
         <div class="card-body bg-light" >
             <ul class="list-group">
                 <li class="list-group-item">
                     <span>ID: </span>
-                    ${cardI.askIdNumber}
+                    ${cardI.employeeID}
                 </li>
                 <li class="list-group-item">
-                    <span>Email: <a>${cardI.askEmail}</a> </span>
-                    // <a>janedoe@aol.com</a>
+                    <span>Email: <a>${cardI.employeeEmail}</a> </span>
                 </li>
                 <li class="list-group-item">
                     <span>Office: </span>
-                    ${cardI.askSchoolName}
+                    ${cardI.employeeData}
                     </li>
             </ul>
         </div>

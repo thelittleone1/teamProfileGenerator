@@ -1,5 +1,5 @@
 // Template Literal for Intern
-const htmlFormat = function(teamProfiles) { `
+const htmlFormat = function(teamProfiles) { return `
 <!DOCTYPE html>
 <html lang="en">
     <head>
