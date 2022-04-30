@@ -1,5 +1,4 @@
 // Required Files and constants
-
 // Const for classes
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
@@ -54,7 +53,9 @@ function buildATeam() {
             choices: ["Add Engineer", "Add Intern", "Team Complete"],
         },
     ])
+    // gathers the users inputs
     .then(function(answers) {
+        // creating new object via Manager class
         const manager = new Manager(answers.nameOfManager, answers.employeeID, answers.employeeEmail, answers.employeeData);
         managerArray.push(manager);
         
@@ -102,7 +103,9 @@ function buildAEngineer() {
             choices: ["Add Engineer", "Add Intern", "Team Complete"],
         },
     ])
+    // gathering users answers
     .then(function(answers) {
+        // creating new engineer object via the Engineer class
         const engineer = new Engineer(answers.nameOfEngineer, answers.employeeID, answers.employeeEmail, answers.employeeData);
         engineerArray.push(engineer);
 
@@ -150,7 +153,9 @@ function buildAIntern() {
             choices: ["Add Engineer", "Add Intern", "Team Complete"],
         },
     ])
+    // gathering users answers
     .then(function(answers) {
+        // creating new intern object via the Intern class
         const intern = new Intern(answers.nameOfIntern, answers.employeeID, answers.employeeEmail, answers.employeeData);
         internArray.push(intern);
 

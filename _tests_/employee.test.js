@@ -1,5 +1,7 @@
+// Importing Employee Classs
 const Employee = require("../lib/employee");
 
+// Test to show Employee returns "Employee"
 describe("Employee", () => {
 
     describe("askRole", () => {

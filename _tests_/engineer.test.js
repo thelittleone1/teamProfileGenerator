@@ -1,5 +1,7 @@
+// Import of Engineer Class
 const Engineer = require("../lib/engineer");
 
+// Test whether Engineer class returns "Engineer"
 describe("Engineer", () => {
 
     describe("askEngineerRole", () => {

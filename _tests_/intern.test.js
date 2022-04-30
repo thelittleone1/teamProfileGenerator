@@ -1,5 +1,7 @@
+// Importing Intern Class
 const Intern = require("../lib/intern");
 
+// Tests whether Intern class returns "Intern"
 describe("Intern", () => {
 
     describe("askInternRole", () => {

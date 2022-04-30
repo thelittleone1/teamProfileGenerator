@@ -1,5 +1,7 @@
+// Importing Manager Class
 const Manager = require("../lib/manager");
 
+// Test whether Manger class returns "Manager"
 describe("Manager", () => {
 
     describe("askManagerRole", () => {

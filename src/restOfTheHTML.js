@@ -1,4 +1,5 @@
-// Template Literal for Intern
+// Template Literal for the HTML format, will insert template literals
+// for manager, engineer, and intern templates
 const htmlFormat = function(teamManager, teamEngineer, teamIntern) { return `
 <!DOCTYPE html>
 <html lang="en">
