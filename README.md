@@ -1,12 +1,13 @@
 # teamProfileGenerator
 
 ## Description
-Created an application that generates a team profile. The application takes user input and generates a team consisting of a manger, engineers, and interns. 
-That input is then rendered into a HTML documents. 
+
+Created an application that generates a team profile. The application takes user input and generates a team consisting of a manger, engineers, and interns.
+That input is then rendered into a HTML documents.
 
 ## Demo
 
-Link to YouTube Video demonstrating the application: 
+Link to YouTube Video demonstrating the application:
 
 https://www.youtube.com/watch?v=IqilMvlJNgY
 
@@ -24,7 +25,7 @@ npm install jest
 
 ## Usage
 
-To run this applction you will use: 
+To run this applction you will use:
 
 node index.js
 
