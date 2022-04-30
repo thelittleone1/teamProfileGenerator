@@ -64,7 +64,11 @@ function buildATeam() {
         
         if (answers.keepBuildingTeam == "Add Intern") {
             buildAIntern();
-        } // Else for team complete end program 
+        } 
+
+        if (answers.keepBuildingTeam == "Team Complete") {
+            buildYourTeam();
+        }
     })
     }
 
@@ -108,7 +112,7 @@ function buildAEngineer() {
         
         if (answers.keepBuildingTeam == "Add Intern") {
             buildAIntern();
-        } // Else for team complete end program 
+        } 
 
         if (answers.keepBuildingTeam == "Team Complete") {
             buildYourTeam();
@@ -116,7 +120,7 @@ function buildAEngineer() {
     })
     }
 
-    // Function to add an intern 
+// Function to add an intern 
 function buildAIntern() {
     inquirer.prompt([
         {
@@ -164,6 +168,7 @@ function buildAIntern() {
     })
     };
 
+// Function to build your team once you select "Team Complete"
 function buildYourTeam() {
     // console.log(managerArray);
     // console.log(engineerArray);
@@ -181,7 +186,7 @@ function buildYourTeam() {
     const finalForm = boilerPlateTemplate(mapManager, mapEngineers, mapInterns);
             
     // Writing File 
-        fs.writeFile("./dist/fileName.html", finalForm, (err) => {
+        fs.writeFile("./dist/generatedTeam.html", finalForm, (err) => {
             if (err) {
                 console.log("Error: File Not Created");
             } else {
@@ -190,6 +195,6 @@ function buildYourTeam() {
         });
     };
 
-// Lanuch application
+// Lanuches application
 buildATeam();
     

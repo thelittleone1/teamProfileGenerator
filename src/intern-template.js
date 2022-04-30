@@ -4,7 +4,7 @@ const internProfile = function(cardI) { return `
     <div class="card-header text-white bg-primary">
         <h3>${cardI.name}</h3>
             <p class="h4">
-            <img src="/images/mug_icon.png">
+            <i class="fa-solid fa-user-graduate"></i>
                 Intern
             </p>
     </div>
@@ -17,7 +17,7 @@ const internProfile = function(cardI) { return `
                     ${cardI.idNumber}
                 </li>
                 <li class="list-group-item">
-                    <span>Email: <a>${cardI.email}</a> </span>
+                    <span>Email: <a href="mailto:${cardI.email}">${cardI.email}</a> </span>
                 </li>
                 <li class="list-group-item">
                     <span>School Name: </span>

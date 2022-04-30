@@ -4,7 +4,7 @@ const managerProfile = function(cardM) { return `
     <div class="card-header text-white bg-primary">
         <h3>${cardM.name}</h3>
             <p class="h4">
-            <img src="/images/mug_icon.png">
+            <i class="fa-solid fa-mug-hot"></i>
                 Manager
             </p>
     </div>
@@ -17,7 +17,7 @@ const managerProfile = function(cardM) { return `
                     ${cardM.idNumber}
                 </li>
                 <li class="list-group-item">
-                    <span>Email: <a>${cardM.email}</a> </span>
+                    <span>Email: <a href="mailto:${cardM.email}">${cardM.email}</a> </span>
                 </li>
                 <li class="list-group-item">
                     <span>Office: </span>
