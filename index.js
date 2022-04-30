@@ -117,78 +117,79 @@ function buildAEngineer() {
     }
 
     // Function to add an intern 
-    function buildAIntern() {
-        inquirer.prompt([
-            {
-                type: "input",
-                message: "What is your interns name?",
-                name: "nameOfIntern",
-            },
-            {
-                type: "input",
-                message: "What is the employee ID number?",
-                name: "employeeID",
-            },
-            {
-                type: "input",
-                message: "What is the employee's email?",
-                name: "employeeEmail",
-            },
-            {
-                type: "input",
-                message: "What is your school name?",
-                name: "employeeData",
-            },
-            {
-                type: "checkbox",
-                message: "Do you want to keep building your team?",
-                name: "keepBuildingTeam",
-                choices: ["Add Engineer", "Add Intern", "Team Complete"],
-            },
-        ])
-        .then(function(answers) {
-            const intern = new Intern(answers.nameOfIntern, answers.employeeID, answers.employeeEmail, answers.employeeData);
-            internArray.push(intern);
+function buildAIntern() {
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your interns name?",
+            name: "nameOfIntern",
+        },
+        {
+            type: "input",
+            message: "What is the employee ID number?",
+            name: "employeeID",
+        },
+        {
+            type: "input",
+            message: "What is the employee's email?",
+            name: "employeeEmail",
+        },
+        {
+            type: "input",
+            message: "What is your school name?",
+            name: "employeeData",
+        },
+        {
+            type: "checkbox",
+            message: "Do you want to keep building your team?",
+            name: "keepBuildingTeam",
+            choices: ["Add Engineer", "Add Intern", "Team Complete"],
+        },
+    ])
+    .then(function(answers) {
+        const intern = new Intern(answers.nameOfIntern, answers.employeeID, answers.employeeEmail, answers.employeeData);
+        internArray.push(intern);
 
-            if (answers.keepBuildingTeam == "Add Engineer") {
-                buildAEngineer();
-            } 
+        if (answers.keepBuildingTeam == "Add Engineer") {
+            buildAEngineer();
+        } 
             
-            if (answers.keepBuildingTeam == "Add Intern") {
-                buildAIntern();
-            } // Else for team complete end program 
+        if (answers.keepBuildingTeam == "Add Intern") {
+            buildAIntern();
+        }  
 
-            if (answers.keepBuildingTeam == "Team Complete") {
-                buildYourTeam();
-            }
-        })
+        if (answers.keepBuildingTeam == "Team Complete") {
+            buildYourTeam();
         }
+    })
+    };
 
-        function buildYourTeam() {
-            // console.log(managerArray);
-            // console.log(engineerArray);
-            // console.log(internArray);
+function buildYourTeam() {
+    // console.log(managerArray);
+    // console.log(engineerArray);
+    // console.log(internArray);
 
-            // Mapping through arrays to return they via the template
-            const mapManager = managerArray.map(item => managerTemplate(item));
-            //console.log(mapManager);
-            const mapEngineers = engineerArray.map(item => engineerTemplate(item)); 
-            //console.log(mapEngineers);
-            const mapInterns = internArray.map(item => internTemplate(item)); 
-            //console.log(mapInterns);
+    // Mapping through arrays to return they via the template
+    const mapManager = managerArray.map(item => managerTemplate(item));
+    //console.log(mapManager);
+    const mapEngineers = engineerArray.map(item => engineerTemplate(item)); 
+    //console.log(mapEngineers);
+    const mapInterns = internArray.map(item => internTemplate(item)); 
+    //console.log(mapInterns);
             
-            // Inserting all data into Final HTML Template
-            const finalForm = boilerPlateTemplate(mapManager, mapEngineers, mapInterns);
+    // Inserting all data into Final HTML Template
+    const finalForm = boilerPlateTemplate(mapManager, mapEngineers, mapInterns);
             
-            // Writing File 
-            fs.writeFile("./dist/fileName.html", finalForm, (err) => {
-                if (err) {
-                    console.log("Error: File Not Created");
-                } else {
-                    console.log("File created!");
-                }
-            });
-        };
+    // Writing File 
+        fs.writeFile("./dist/fileName.html", finalForm, (err) => {
+            if (err) {
+                console.log("Error: File Not Created");
+            } else {
+                console.log("File created!");
+            }
+        });
+    };
 
-        buildATeam();
+// Lanuch application
+buildATeam();
     
