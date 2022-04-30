@@ -15,8 +15,11 @@ https://www.youtube.com/watch?v=IqilMvlJNgY
 To run this application it will require you to install:
 
 npm init -y
+
 npm install inquirer
+
 npm install fs
+
 npm install jest
 
 ## Usage
